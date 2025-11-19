@@ -3,39 +3,190 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linlang </title>
+  <title>Linlang | Indie Game Developer</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Modern font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+  <!-- GSAP + ScrollReveal -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 </head>
 <body>
-  <header>
-    <img src="images/myavatar.png" alt="My Avatar" class="avatar">
-    <h1>Linlang</h1>
-    <p>Indie Game Developer | Gameplay Programmer</p>
+  <!-- Loading Screen -->
+  <div class="loader">
+    <div class="loader-content">
+      <div class="loader-spinner"></div>
+      <p class="loader-text">Loading...</p>
+    </div>
+  </div>
+
+  <!-- Particle background -->
+  <canvas id="particles"></canvas>
+
+  <!-- Mouse Follower -->
+  <div class="mouse-follower"></div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">Linlang</div>
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <div class="avatar-container">
+        <img src="images/myavatar.png" alt="Linlang" class="avatar">
+        <div class="glow-ring"></div>
+        <div class="glow-ring glow-ring-2"></div>
+      </div>
+      <h1 class="hero-title">
+        <span class="title-line">Linlang</span>
+      </h1>
+      <p class="tagline">Indie Game Developer • Gameplay Programmer</p>
+      <div class="socials">
+        <a href="mailto:alexchen.dev@gmail.com" class="social-icon" aria-label="Email">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        </a>
+        <a href="https://github.com/yourusername" target="_blank" class="social-icon" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+        <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+        </a>
+        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon" aria-label="Twitter">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
+        </a>
+        <a href="https://linlang.itch.io" target="_blank" class="social-icon" aria-label="itch.io">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.4c5.302 0 9.6 4.298 9.6 9.6 0 5.302-4.298 9.6-9.6 9.6-5.302 0-9.6-4.298-9.6-9.6 0-5.302 4.298-9.6 9.6-9.6zm-2.4 4.8v9.6l7.2-4.8-7.2-4.8z"/></svg>
+        </a>
+      </div>
+    </div>
   </header>
 
-  <section class="projects">
-    <h2>My Projects</h2>
-
-    <div class="project">
-      <img src="images/project1.jpg" alt="Project 1">
-      <h3>Project 1: BattleCore</h3>
-      <p>A 2D action game developed with Unity. Features real-time combat and procedural level generation.</p>
-      <a href="https://store.steampowered.com/" target="_blank">View on Steam</a>
-    </div>
-
-    <div class="project">
-      <img src="images/project2.jpg" alt="Project 2">
-      <h3>Project 2: AI Arena</h3>
-      <p>An Unreal Engine 5 prototype focused on AI combat and multiplayer synchronization.</p>
-      <a href="https://github.com/" target="_blank">View on GitHub</a>
+  <!-- Skills Section -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <h2 class="section-title">Tech Stack</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🎮</div>
+          <h3>Game Engines</h3>
+          <p>Unity • Unreal Engine 5</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3>Programming Languages</h3>
+          <p>C# • C++ • Python • JavaScript</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔧</div>
+          <h3>Game Systems</h3>
+          <p>Gameplay Ability System • Networking • AI</p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🎨</div>
+          <h3>Tools</h3>
+          <p>Git • Perforce • Jira • Blender</p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <footer>
-    <p>Contact: <a href="zoulinlang121@outlook.com">zoulinlang121@outlook.com</a> |
-       <a href="https://github.com/">GitHub</a> |
-       <a href="https://linkedin.com/">LinkedIn</a>
-    </p>
+  <!-- Projects Section -->
+  <section class="projects" id="projects">
+    <div class="container">
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="project-grid">
+        <div class="project-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-image-wrapper">
+                <img src="images/project1.jpg" alt="BattleCore">
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <h3>BattleCore</h3>
+                <p>2D Hardcore Action | Unity | Procedural Levels</p>
+                <div class="card-tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">Roguelike</span>
+                  <span class="tag">2D</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>BattleCore</h3>
+              <p>Real-time roguelike combat • Modular weapon system • Steam Wishlist Open</p>
+              <ul class="card-features">
+                <li>✓ Procedural Level Generation</li>
+                <li>✓ Modular Weapon System</li>
+                <li>✓ Hardcore Combat Mechanics</li>
+              </ul>
+              <a href="https://store.steampowered.com/app/XXXXXX" target="_blank" class="btn">View on Steam →</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-image-wrapper">
+                <img src="images/project2.jpg" alt="AI Arena">
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <h3>AI Arena</h3>
+                <p>UE5 Multiplayer Prototype | Advanced AI | Lockstep Sync</p>
+                <div class="card-tags">
+                  <span class="tag">UE5</span>
+                  <span class="tag">Multiplayer</span>
+                  <span class="tag">AI</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <h3>AI Arena</h3>
+              <p>High-performance networking with GAS + Replication Graph</p>
+              <ul class="card-features">
+                <li>✓ GAS Gameplay Ability System</li>
+                <li>✓ High-Performance Network Sync</li>
+                <li>✓ Advanced AI Behavior Trees</li>
+              </ul>
+              <a href="https://github.com/yourusername/AI-Arena" target="_blank" class="btn">View on GitHub →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <footer class="contact" id="contact">
+    <div class="container">
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="contact-text">Have a project idea? Let's create amazing games together!</p>
+      <a href="mailto:alexchen.dev@gmail.com" class="contact-btn">Send Email</a>
+      <div class="footer-text">
+        <p>© 2025 Linlang ===Try to be an expert in latest field===</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
