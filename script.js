@@ -8,7 +8,7 @@ const translations = {
     'nav.skills': '技能',
     'nav.projects': '项目',
     'nav.contact': '联系',
-    'hero.tagline': 'MSc 游戏工程 · AI时代原生技术艺术家（Creative Technologist | AI-Native）',
+    'hero.tagline': 'MSc 游戏工程 · AI时代原生技术艺术家',
     'hero.avail': '可到岗：2026年8月中旬 · 可连续实习6个月（5天/周）',
     'about.title': '关于我',
     'about.intro': '我如何思考与构建',
@@ -557,6 +557,8 @@ const projectVideo = document.getElementById('projectVideo');
 
 function openProjectVideo(src) {
   if (!videoModal || !projectVideo || !src) return;
+  projectVideo.muted = true;
+  projectVideo.setAttribute('muted', '');
   projectVideo.src = src;
   videoModal.hidden = false;
   document.body.classList.add('video-modal-open');

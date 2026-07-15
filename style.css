@@ -923,6 +923,16 @@ body.video-modal-open {
   overflow: hidden;
 }
 
+/* 弹窗打开时，自定义光标需高于模糊遮罩，避免被压在下层发虚 */
+body.video-modal-open .mouse-follower {
+  z-index: 10050;
+}
+
+.video-modal,
+.video-modal * {
+  cursor: none;
+}
+
 /* 联系部分 */
 .contact {
   padding: 120px 0 80px;
