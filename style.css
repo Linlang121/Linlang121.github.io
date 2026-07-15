@@ -28,7 +28,7 @@ body {
 }
 
 /* 隐藏所有可点击元素的默认鼠标 */
-a, button, .btn, .contact-btn, .social-icon, .nav-link, .nav-logo, .project-card, .hamburger {
+a, button, .btn, .contact-btn, .social-icon, .nav-link, .nav-logo, .project-card, .hamburger, .lang-toggle, .video-modal-close {
   cursor: none !important;
 }
 
@@ -207,6 +207,34 @@ body:hover .mouse-follower::after {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-toggle {
+  border: 1px solid rgba(142, 111, 255, 0.55);
+  background: rgba(142, 111, 255, 0.15);
+  color: var(--light);
+  font-family: inherit;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  line-height: 1;
+}
+
+.lang-toggle:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  box-shadow: 0 0 16px rgba(0, 242, 255, 0.25);
+  background: rgba(0, 242, 255, 0.12);
 }
 
 .hamburger {
@@ -409,9 +437,117 @@ body:hover .mouse-follower::after {
   border-radius: 2px;
 }
 
+.hero-avail {
+  margin-top: 12px;
+  color: rgba(240, 240, 240, 0.7);
+  font-size: 0.95rem;
+  max-width: 520px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.5;
+}
+
+.education {
+  padding: 100px 0 40px;
+  position: relative;
+}
+
+.about {
+  padding: 100px 0 40px;
+  position: relative;
+}
+
+.about-intro {
+  text-align: center;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--cyan);
+  margin: -10px auto 48px;
+  letter-spacing: 0.5px;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+}
+
+.about-card {
+  background: rgba(50, 40, 70, 0.55);
+  border: 1px solid rgba(142, 111, 255, 0.35);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: all 0.3s;
+}
+
+.about-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(142, 111, 255, 0.25);
+}
+
+.about-card h3 {
+  color: var(--cyan);
+  font-size: 1.2rem;
+  margin-bottom: 14px;
+  line-height: 1.4;
+}
+
+.about-card p {
+  color: rgba(240, 240, 240, 0.88);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.edu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+}
+
+.edu-card {
+  background: rgba(50, 40, 70, 0.55);
+  border: 1px solid rgba(142, 111, 255, 0.35);
+  border-radius: 20px;
+  padding: 32px 28px;
+  transition: all 0.3s;
+}
+
+.edu-card:hover {
+  border-color: var(--cyan);
+  transform: translateY(-6px);
+  box-shadow: 0 16px 32px rgba(142, 111, 255, 0.25);
+}
+
+.edu-card h3 {
+  color: var(--cyan);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.edu-meta {
+  color: rgba(240, 240, 240, 0.6);
+  font-size: 0.9rem;
+  margin-bottom: 12px;
+}
+
+.edu-card p:last-child {
+  color: rgba(240, 240, 240, 0.92);
+  line-height: 1.6;
+}
+
+.skills-intro {
+  text-align: center;
+  max-width: 640px;
+  margin: -20px auto 50px;
+  color: rgba(240, 240, 240, 0.72);
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 30px;
 }
 
@@ -420,7 +556,7 @@ body:hover .mouse-follower::after {
   backdrop-filter: blur(10px);
   border: 1px solid rgba(142, 111, 255, 0.5);
   border-radius: 20px;
-  padding: 40px 30px;
+  padding: 36px 28px;
   text-align: center;
   transition: all 0.4s;
   position: relative;
@@ -455,18 +591,50 @@ body:hover .mouse-follower::after {
   font-size: 3.5rem;
   margin-bottom: 20px;
   filter: drop-shadow(0 0 15px rgba(142, 111, 255, 0.8));
+  position: relative;
+  z-index: 1;
 }
 
 .skill-card h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+  font-size: 1.35rem;
+  margin-bottom: 20px;
   color: var(--cyan);
   text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+  position: relative;
+  z-index: 1;
 }
 
 .skill-card p {
   color: rgba(240, 240, 240, 0.95);
   line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-tag {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  color: rgba(240, 240, 240, 0.95);
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(142, 111, 255, 0.35);
+  transition: border-color 0.25s, color 0.25s, background 0.25s;
+}
+
+.skill-card:hover .skill-tag {
+  border-color: rgba(0, 242, 255, 0.45);
+  background: rgba(0, 242, 255, 0.08);
 }
 
 /* 项目部分 */
@@ -477,14 +645,14 @@ body:hover .mouse-follower::after {
 
 .project-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 50px;
 }
 
 /* 3D 翻转卡片 */
 .project-card {
   perspective: 1500px;
-  height: 500px;
+  height: 520px;
   cursor: none;
 }
 
@@ -589,15 +757,28 @@ body:hover .mouse-follower::after {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  padding: 40px;
+  justify-content: flex-start;
+  padding: 28px 24px 24px;
   text-align: center;
   background: linear-gradient(135deg, rgba(142, 111, 255, 0.15), rgba(0, 242, 255, 0.1));
+  box-sizing: border-box;
+}
+
+.card-back-body {
+  flex: 1 1 auto;
+  min-height: 0;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 12px;
 }
 
 .card-back h3 {
-  font-size: 2.2rem;
-  margin-bottom: 20px;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  margin-bottom: 12px;
+  line-height: 1.3;
   background: linear-gradient(90deg, var(--purple), var(--cyan));
   -webkit-background-clip: text;
   background-clip: text;
@@ -605,21 +786,34 @@ body:hover .mouse-follower::after {
 }
 
 .card-back p {
-  margin-bottom: 30px;
-  line-height: 1.8;
+  margin-bottom: 16px;
+  line-height: 1.55;
+  font-size: 0.9rem;
   color: rgba(240, 240, 240, 0.9);
 }
 
 .card-features {
   list-style: none;
-  margin-bottom: 30px;
+  margin: 0 0 8px;
+  padding: 0;
   text-align: left;
+  width: 100%;
+  max-width: 360px;
 }
 
 .card-features li {
-  padding: 10px 0;
+  padding: 6px 0;
   color: rgba(240, 240, 240, 0.8);
-  font-size: 1rem;
+  font-size: 0.88rem;
+  line-height: 1.45;
+}
+
+.card-back .btn {
+  flex-shrink: 0;
+  margin-top: auto;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  white-space: nowrap;
 }
 
 .btn {
@@ -633,6 +827,7 @@ body:hover .mouse-follower::after {
   transition: all 0.4s;
   position: relative;
   overflow: hidden;
+  display: inline-block;
 }
 
 .btn::before {
@@ -655,6 +850,77 @@ body:hover .mouse-follower::after {
   transform: translateY(-3px);
   box-shadow: 0 10px 30px rgba(142, 111, 255, 0.6);
   border-color: var(--cyan);
+}
+
+.btn-video {
+  font-family: inherit;
+  cursor: none;
+}
+
+/* 项目视频弹窗 */
+.video-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.video-modal[hidden] {
+  display: none;
+}
+
+.video-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(6px);
+}
+
+.video-modal-dialog {
+  position: relative;
+  width: min(920px, 100%);
+  background: rgba(18, 16, 28, 0.98);
+  border: 1px solid rgba(142, 111, 255, 0.45);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+  padding: 16px;
+  z-index: 1;
+}
+
+.video-modal-dialog video {
+  display: block;
+  width: 100%;
+  max-height: min(70vh, 520px);
+  border-radius: 10px;
+  background: #000;
+}
+
+.video-modal-close {
+  position: absolute;
+  top: 8px;
+  right: 12px;
+  z-index: 2;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(142, 111, 255, 0.25);
+  color: var(--light);
+  font-size: 1.5rem;
+  line-height: 1;
+  transition: background 0.25s, color 0.25s;
+}
+
+.video-modal-close:hover {
+  background: rgba(0, 242, 255, 0.25);
+  color: var(--cyan);
+}
+
+body.video-modal-open {
+  overflow: hidden;
 }
 
 /* 联系部分 */
@@ -729,6 +995,10 @@ body:hover .mouse-follower::after {
   }
 
   .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-grid {
     grid-template-columns: 1fr;
   }
 

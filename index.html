@@ -1,143 +1,205 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Linlang | Indie Game Developer</title>
+  <title>Linlang Zou | Interactive Content Developer</title>
   <link rel="stylesheet" href="style.css">
-  <!-- Modern font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
-  <!-- GSAP + ScrollReveal -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
   <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
 </head>
 <body>
-  <!-- Loading Screen -->
   <div class="loader">
     <div class="loader-content">
       <div class="loader-spinner"></div>
-      <p class="loader-text">Loading...</p>
+      <p class="loader-text" data-i18n="loader">Loading...</p>
     </div>
   </div>
 
-  <!-- Particle background -->
   <canvas id="particles"></canvas>
-
-  <!-- Mouse Follower -->
   <div class="mouse-follower"></div>
 
-  <!-- Navigation -->
   <nav class="navbar" id="navbar">
     <div class="nav-container">
       <div class="nav-logo">Linlang</div>
       <ul class="nav-menu">
-        <li><a href="#home" class="nav-link">Home</a></li>
-        <li><a href="#projects" class="nav-link">Projects</a></li>
-        <li><a href="#skills" class="nav-link">Skills</a></li>
-        <li><a href="#contact" class="nav-link">Contact</a></li>
+        <li><a href="#home" class="nav-link" data-i18n="nav.home">首页</a></li>
+        <li><a href="#about" class="nav-link" data-i18n="nav.about">关于</a></li>
+        <li><a href="#education" class="nav-link" data-i18n="nav.education">教育</a></li>
+        <li><a href="#skills" class="nav-link" data-i18n="nav.skills">技能</a></li>
+        <li><a href="#projects" class="nav-link" data-i18n="nav.projects">项目</a></li>
+        <li><a href="#contact" class="nav-link" data-i18n="nav.contact">联系</a></li>
       </ul>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+      <div class="nav-right">
+        <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch language">EN</button>
+        <div class="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </nav>
 
-  <!-- Hero Section -->
   <header class="hero" id="home">
     <div class="hero-content">
       <div class="avatar-container">
-        <img src="images/myavatar.png" alt="Linlang" class="avatar">
+        <img src="images/myavatar.png" alt="Linlang Zou" class="avatar">
         <div class="glow-ring"></div>
         <div class="glow-ring glow-ring-2"></div>
       </div>
       <h1 class="hero-title">
-        <span class="title-line">Linlang</span>
+        <span class="title-line">Linlang Zou</span>
       </h1>
-      <p class="tagline">Indie Game Developer • Gameplay Programmer</p>
+      <p class="tagline" data-i18n="hero.tagline">MSc 游戏工程 · 互动内容开发实习生</p>
+     
       <div class="socials">
-        <a href="mailto:alexchen.dev@gmail.com" class="social-icon" aria-label="Email">
+        <a href="mailto:zoulinlang121@outlook.com" class="social-icon" aria-label="Email">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
         </a>
-        <a href="https://github.com/yourusername" target="_blank" class="social-icon" aria-label="GitHub">
+        <a href="https://github.com/Linlang121" target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
-        </a>
-        <a href="https://linkedin.com/in/yourusername" target="_blank" class="social-icon" aria-label="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-        </a>
-        <a href="https://twitter.com/yourusername" target="_blank" class="social-icon" aria-label="Twitter">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"/></svg>
-        </a>
-        <a href="https://linlang.itch.io" target="_blank" class="social-icon" aria-label="itch.io">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm0 2.4c5.302 0 9.6 4.298 9.6 9.6 0 5.302-4.298 9.6-9.6 9.6-5.302 0-9.6-4.298-9.6-9.6 0-5.302 4.298-9.6 9.6-9.6zm-2.4 4.8v9.6l7.2-4.8-7.2-4.8z"/></svg>
         </a>
       </div>
     </div>
   </header>
 
-  <!-- Skills Section -->
-  <section class="skills" id="skills">
+  <section class="about" id="about">
     <div class="container">
-      <h2 class="section-title">Tech Stack</h2>
-      <div class="skills-grid">
-        <div class="skill-card">
-          <div class="skill-icon">🎮</div>
-          <h3>Game Engines</h3>
-          <p>Unity • Unreal Engine 5</p>
+      <h2 class="section-title" data-i18n="about.title">关于我</h2>
+      <p class="about-intro" data-i18n="about.intro">我如何思考与构建</p>
+      <div class="about-grid">
+        <article class="about-card">
+          <h3 data-i18n="about.1.title">拥抱“认知放大”</h3>
+          <p data-i18n="about.1.body">我是AI时代的AI原生开发者。我不把工具视作简单的辅助，而是将其作为认知的“放大器”。借助 GPT 和 Cursor，我能在极短时间内跨越技术壁垒，构建出可运行的原型。对我而言，学习本身就是一项通过快速迭代和AI对齐来完成的工程任务。</p>
+        </article>
+        <article class="about-card">
+          <h3 data-i18n="about.2.title">算法思维，人文决策</h3>
+          <p data-i18n="about.2.body">我习惯用类似AI模型的思维来处理复杂生活——将决策过程拆解为影响因子与加权矩阵，再辅以客观的事实检索，通过算法辅助进行量化权衡。但这并不意味着冷冰冰的逻辑，这种方式反而让我跳出了直觉的偏见，能更理智地在复杂与不确定性中找到最优解。</p>
+        </article>
+        <article class="about-card">
+          <h3 data-i18n="about.3.title">架构思维与极致韧性</h3>
+          <p data-i18n="about.3.body">我倾向于把复杂事物降维拆解为一个个可独立攻破的最小闭环。这种工程思维不仅限于写代码，更融入了我的生活。我不惧怕任何难啃的骨头，无论是复杂的系统交互，还是《艾尔登法环》与《只狼》中的高难度Boss战——我享受在失败中分析机制、优化策略，直到获得最终成就感的那个过程。</p>
+        </article>
+        <article class="about-card">
+          <h3 data-i18n="about.4.title">审美是我的罗盘</h3>
+          <p data-i18n="about.4.body">扎实的技术必须承载好的内容。我追求高审美，并认为审美不仅是视觉的装饰，更是对人内心状态的投射。我渴望创作能引发强烈情感共鸣的作品，因为在我看来，技术是构建世界的骨架，而审美则是赋予它灵魂的血肉。</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="education" id="education">
+    <div class="container">
+      <h2 class="section-title" data-i18n="edu.title">教育背景</h2>
+      <div class="edu-grid">
+        <div class="edu-card">
+          <h3 data-i18n="edu.warwick.school">英国华威大学 (University of Warwick)</h3>
+          <p class="edu-meta" data-i18n="edu.warwick.meta">2025.10 – 2027.01（预期毕业）· 英国 考文垂</p>
+          <p data-i18n="edu.warwick.degree">理学硕士 (MSc) · Game Engineering（游戏工程）</p>
         </div>
-        <div class="skill-card">
-          <div class="skill-icon">💻</div>
-          <h3>Programming Languages</h3>
-          <p>C# • C++ • Python • JavaScript</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🔧</div>
-          <h3>Game Systems</h3>
-          <p>Gameplay Ability System • Networking • AI</p>
-        </div>
-        <div class="skill-card">
-          <div class="skill-icon">🎨</div>
-          <h3>Tools</h3>
-          <p>Git • Perforce • Jira • Blender</p>
+        <div class="edu-card">
+          <h3 data-i18n="edu.bjfu.school">北京林业大学</h3>
+          <p class="edu-meta" data-i18n="edu.bjfu.meta">2021.09 – 2025.07 · 中国 北京</p>
+          <p data-i18n="edu.bjfu.degree">理学学士 (BSc) · 地理信息科学 (GIS)</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Projects Section -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <h2 class="section-title" data-i18n="skills.title">专业技能</h2>
+      <div class="skills-grid">
+        <div class="skill-card">
+          <div class="skill-icon">🎮</div>
+          <h3 data-i18n="skills.engines.title">引擎与交互工具</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Unreal Engine 5 (Blueprints)</span>
+            <span class="skill-tag">Unity (C#)</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">💻</div>
+          <h3 data-i18n="skills.lang.title">编程语言</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">C#</span>
+            <span class="skill-tag">C++</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🧠</div>
+          <h3 data-i18n="skills.ai.title">AI 与数据科学</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">PyTorch</span>
+            <span class="skill-tag">OpenCV</span>
+            <span class="skill-tag">CNN</span>
+            <span class="skill-tag">Cursor</span>
+            <span class="skill-tag">Claude Code</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🎬</div>
+          <h3 data-i18n="skills.media.title">多媒体与交互创作</h3>
+          <div class="skill-tags">
+            <span class="skill-tag" data-i18n="skills.tag.avprep">音视频资产处理 (Audio/Video Asset Prep)</span>
+            <span class="skill-tag" data-i18n="skills.tag.avrt">实时视听反馈设计</span>
+            <span class="skill-tag" data-i18n="skills.tag.asset">媒体资产整合</span>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-icon">🔧</div>
+          <h3 data-i18n="skills.workflow.title">工作流与专业知识</h3>
+          <div class="skill-tags">
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag" data-i18n="skills.tag.agile">敏捷开发 (Agile)</span>
+            <span class="skill-tag" data-i18n="skills.tag.hci">人机交互 (HCI)</span>
+            <span class="skill-tag" data-i18n="skills.tag.ux">用户体验 (UX)</span>
+            <span class="skill-tag" data-i18n="skills.tag.av">视听反馈设计</span>
+            <span class="skill-tag" data-i18n="skills.tag.blackbox">黑盒测试</span>
+            <span class="skill-tag" data-i18n="skills.tag.collab">团队沟通与协作</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="projects" id="projects">
     <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
+      <h2 class="section-title" data-i18n="projects.title">核心项目</h2>
       <div class="project-grid">
         <div class="project-card">
           <div class="card-inner">
             <div class="card-front">
               <div class="card-image-wrapper">
-                <img src="images/project1.jpg" alt="BattleCore">
+                <img src="images/project1.jpg" alt="Action-Survival-Football">
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
-                <h3>BattleCore</h3>
-                <p>2D Hardcore Action | Unity | Procedural Levels</p>
+                <h3 data-i18n="p1.title">跨次元交互游戏</h3>
+                <p data-i18n="p1.subtitle">Action-Survival-Football · 独立开发 · UE5 + AI Vision</p>
                 <div class="card-tags">
-                  <span class="tag">Unity</span>
-                  <span class="tag">Roguelike</span>
-                  <span class="tag">2D</span>
+                  <span class="tag">UE5</span>
+                  <span class="tag">MediaPipe</span>
+                  <span class="tag">OSC / UDP</span>
                 </div>
               </div>
             </div>
             <div class="card-back">
-              <h3>BattleCore</h3>
-              <p>Real-time roguelike combat • Modular weapon system • Steam Wishlist Open</p>
-              <ul class="card-features">
-                <li>✓ Procedural Level Generation</li>
-                <li>✓ Modular Weapon System</li>
-                <li>✓ Hardcore Combat Mechanics</li>
-              </ul>
-              <a href="https://store.steampowered.com/app/XXXXXX" target="_blank" class="btn">View on Steam →</a>
+              <div class="card-back-body">
+                <h3 data-i18n="p1.title">跨次元交互游戏</h3>
+                <p data-i18n="p1.back">UE5 物理脉冲与球体追踪 · OpenCV/MediaPipe 击掌识别 · 低延迟跨平台通信闭环</p>
+                <ul class="card-features">
+                  <li data-i18n="p1.f1">✓ Blueprints 核心交互与全局状态管理</li>
+                  <li data-i18n="p1.f2">✓ 21 点手部骨骼与防误触击掌识别</li>
+                  <li data-i18n="p1.f3">✓ Python ↔ UE5 OSC / UDP 超低延迟链路</li>
+                </ul>
+              </div>
+              <a href="https://github.com/Linlang121/ACTION-SURVIVAL-FOOTBALL" target="_blank" rel="noopener noreferrer" class="btn" data-i18n="projects.view">查看项目 →</a>
             </div>
           </div>
         </div>
@@ -146,28 +208,61 @@
           <div class="card-inner">
             <div class="card-front">
               <div class="card-image-wrapper">
-                <img src="images/project2.jpg" alt="AI Arena">
+                <img src="images/project2.jpg" alt="Unity CNN Capture System">
                 <div class="card-overlay"></div>
               </div>
               <div class="card-content">
-                <h3>AI Arena</h3>
-                <p>UE5 Multiplayer Prototype | Advanced AI | Lockstep Sync</p>
+                <h3 data-i18n="p2.title">自动化渲染捕获系统</h3>
+                <p data-i18n="p2.subtitle">Unity + CNN · 核心开发者 · 2026.02 – 至今</p>
                 <div class="card-tags">
-                  <span class="tag">UE5</span>
-                  <span class="tag">Multiplayer</span>
-                  <span class="tag">AI</span>
+                  <span class="tag">Unity</span>
+                  <span class="tag">PyTorch</span>
+                  <span class="tag">CNN</span>
                 </div>
               </div>
             </div>
             <div class="card-back">
-              <h3>AI Arena</h3>
-              <p>High-performance networking with GAS + Replication Graph</p>
-              <ul class="card-features">
-                <li>✓ GAS Gameplay Ability System</li>
-                <li>✓ High-Performance Network Sync</li>
-                <li>✓ Advanced AI Behavior Trees</li>
-              </ul>
-              <a href="https://github.com/yourusername/AI-Arena" target="_blank" class="btn">View on GitHub →</a>
+              <div class="card-back-body">
+                <h3 data-i18n="p2.title">自动化渲染捕获系统</h3>
+                <p data-i18n="p2.back">引擎内自动漫游截图生成训练集 · CNN 识别渲染异常（如材质丢失）</p>
+                <ul class="card-features">
+                  <li data-i18n="p2.f1">✓ Unity C# 自动相机漫游与批量截图</li>
+                  <li data-i18n="p2.f2">✓ PyTorch CNN 图像分类管线</li>
+                  <li data-i18n="p2.f3">✓ AI × 游戏引擎工程流落地探索</li>
+                </ul>
+              </div>
+              <button type="button" class="btn btn-video" data-video="images/project2.mp4" data-i18n="projects.watch">观看视频 →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="card-inner">
+            <div class="card-front">
+              <div class="card-image-wrapper">
+                <img src="images/project3.jpg" alt="Desert Tank">
+                <div class="card-overlay"></div>
+              </div>
+              <div class="card-content">
+                <h3 data-i18n="p3.title">「沙漠坦克」3D 多人游戏</h3>
+                <p data-i18n="p3.subtitle">Team Leader · 敏捷研发 · 2025.11 – 2026.01</p>
+                <div class="card-tags">
+                  <span class="tag">Unity</span>
+                  <span class="tag">Multiplayer</span>
+                  <span class="tag">Agile</span>
+                </div>
+              </div>
+            </div>
+            <div class="card-back">
+              <div class="card-back-body">
+                <h3 data-i18n="p3.title">「沙漠坦克」UE5游戏团队开发</h3>
+                <p data-i18n="p3.back">主导架构与研发排期 · Git 分支策略与 Code Review · 场景与多媒体资产整合调优</p>
+                <ul class="card-features">
+                  <li data-i18n="p3.f1">✓ 团队架构、排期与版本冲突治理</li>
+                  <li data-i18n="p3.f2">✓ 高频 Code Review 与分支管理</li>
+                  <li data-i18n="p3.f3">✓ 3D 场景 / 音效 / UI 整合与性能调优</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
@@ -175,14 +270,21 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
+  <div class="video-modal" id="videoModal" hidden>
+    <div class="video-modal-backdrop" data-close-video></div>
+    <div class="video-modal-dialog" role="dialog" aria-modal="true" aria-label="Project video">
+      <button type="button" class="video-modal-close" data-close-video aria-label="Close">&times;</button>
+      <video id="projectVideo" controls playsinline></video>
+    </div>
+  </div>
+
   <footer class="contact" id="contact">
     <div class="container">
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="contact-text">Have a project idea? Let's create amazing games together!</p>
-      <a href="mailto:alexchen.dev@gmail.com" class="contact-btn">Send Email</a>
+      <h2 class="section-title" data-i18n="contact.title">联系我</h2>
+      <p class="contact-text" data-i18n="contact.text">求职意向：互动内容开发实习生 · 欢迎沟通实习机会</p>
+      <a href="mailto:zoulinlang121@outlook.com" class="contact-btn" data-i18n="contact.btn">发送邮件</a>
       <div class="footer-text">
-        <p>© 2025 Linlang ===Try to be an expert in latest field===</p>
+        <p data-i18n="footer">© 2026 Linlang Zou · MSc Game Engineering</p>
       </div>
     </div>
   </footer>
