@@ -125,7 +125,7 @@ const translations = {
     'p2.f1': '✓ Unity C# camera roaming & batch capture',
     'p2.f2': '✓ PyTorch CNN classification pipeline',
     'p2.f3': '✓ AI × game-engine workflow exploration',
-    'p3.title': 'Desert Tank — 3D Multiplayer',
+    'p3.title': 'Desert Tank — UE5 Team Project',
     'p3.subtitle': 'Team Leader · Agile · Nov 2025 – Jan 2026',
     'p3.back': 'Led architecture & schedule · Git branching & code review · asset integration',
     'p3.f1': '✓ Team architecture & conflict resolution',
